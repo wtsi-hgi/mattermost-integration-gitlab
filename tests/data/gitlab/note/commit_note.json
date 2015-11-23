@@ -1,0 +1,42 @@
+{
+    "object_kind": "note",
+    "repository": {
+        "url": "gitlab@gitlab_url:example_user/example-repository.git",
+        "homepage": "http://gitlab_url/example_user/example-repository",
+        "description": null,
+        "name": "example repository"
+    },
+    "object_attributes": {
+        "commit_id": "bf249e058f87ef90a14be04268efde573c8431e4",
+        "st_diff": null,
+        "line_code": null,
+        "updated_at": "2015-11-06 17:48:26 UTC",
+        "noteable_type": "Commit",
+        "updated_by_id": null,
+        "id": 3860,
+        "url": "http://gitlab_url/example_user/example-repository/commit/bf249e058f87ef90a14be04268efde573c8431e4#note_3860",
+        "created_at": "2015-11-06 17:48:26 UTC",
+        "system": false,
+        "note": "new comment",
+        "attachment": null,
+        "noteable_id": null,
+        "author_id": 2,
+        "project_id": 102
+    },
+    "user": {
+        "username": "example_user",
+        "avatar_url": "http://www.gravatar.com/avatar/aaa?s=40&d=identicon",
+        "name": "Example User"
+    },
+    "commit": {
+        "url": "http://gitlab_url/example_user/example-repository/commit/bf249e058f87ef90a14be04268efde573c8431e4",
+        "timestamp": "2015-11-06T18:48:22+01:00",
+        "message": "bump\n",
+        "id": "bf249e058f87ef90a14be04268efde573c8431e4",
+        "author": {
+            "email": "user@example.com",
+            "name": "Example User"
+        }
+    },
+    "project_id": 102
+}

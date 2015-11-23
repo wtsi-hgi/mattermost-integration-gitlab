@@ -1,0 +1,44 @@
+{
+    "object_kind": "push",
+    "repository": {
+        "git_ssh_url": "gitlab@gitlab_url:example_user/example-repository.git",
+        "description": null,
+        "url": "gitlab@gitlab_url:example_user/example-repository.git",
+        "git_http_url": "http://gitlab_url/example_user/example-repository.git",
+        "visibility_level": 0,
+        "homepage": "http://gitlab_url/example_user/example-repository",
+        "name": "example repository"
+    },
+    "commits": [
+        {
+            "url": "http://gitlab_url/example_user/example-repository/commit/a0e40a9b8e8bd3ad3acccf64c016244109b15d37",
+            "timestamp": "2015-11-06T18:48:24+01:00",
+            "message": "bump2\n",
+            "id": "a0e40a9b8e8bd3ad3acccf64c016244109b15d37",
+            "author": {
+                "email": "user@example.com",
+                "name": "Example User"
+            }
+        },
+        {
+            "url": "http://gitlab_url/example_user/example-repository/commit/19df8c9c23daf53ea122ea0834814b846ea92875",
+            "timestamp": "2015-11-06T18:48:28+01:00",
+            "message": "Merge branch 'dev' into 'master'\n\nMaster\n\nnew description\n\nSee merge request !1",
+            "id": "19df8c9c23daf53ea122ea0834814b846ea92875",
+            "author": {
+                "email": "user@example.com",
+                "name": "Example User"
+            }
+        }
+    ],
+    "after": "19df8c9c23daf53ea122ea0834814b846ea92875",
+    "message": null,
+    "before": "bf249e058f87ef90a14be04268efde573c8431e4",
+    "user_id": 2,
+    "user_name": "Example User",
+    "total_commits_count": 2,
+    "project_id": 102,
+    "ref": "refs/heads/master",
+    "user_email": "user@example.com",
+    "checkout_sha": "19df8c9c23daf53ea122ea0834814b846ea92875"
+}

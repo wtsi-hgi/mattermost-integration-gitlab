@@ -1,0 +1,34 @@
+{
+    "object_kind": "push",
+    "repository": {
+        "git_ssh_url": "gitlab@gitlab_url:example_user/example-repository.git",
+        "description": null,
+        "url": "gitlab@gitlab_url:example_user/example-repository.git",
+        "git_http_url": "http://gitlab_url/example_user/example-repository.git",
+        "visibility_level": 0,
+        "homepage": "http://gitlab_url/example_user/example-repository",
+        "name": "example repository"
+    },
+    "commits": [
+        {
+            "url": "http://gitlab_url/example_user/example-repository/commit/bf249e058f87ef90a14be04268efde573c8431e4",
+            "timestamp": "2015-11-06T18:48:22+01:00",
+            "message": "bump\n",
+            "id": "bf249e058f87ef90a14be04268efde573c8431e4",
+            "author": {
+                "email": "user@example.com",
+                "name": "Example User"
+            }
+        }
+    ],
+    "after": "bf249e058f87ef90a14be04268efde573c8431e4",
+    "message": null,
+    "before": "6d59f23ff7fddbf175771c1b003a1b5135e4c475",
+    "user_id": 2,
+    "user_name": "Example User",
+    "total_commits_count": 1,
+    "project_id": 102,
+    "ref": "refs/heads/master",
+    "user_email": "user@example.com",
+    "checkout_sha": "bf249e058f87ef90a14be04268efde573c8431e4"
+}

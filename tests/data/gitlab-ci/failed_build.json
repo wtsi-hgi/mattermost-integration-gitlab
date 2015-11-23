@@ -1,0 +1,13 @@
+{
+    "build_status": "failed",
+    "project_name": "Example User / example repository",
+    "build_name": "fail",
+    "build_started_at": "2015-11-06 17:47:48 UTC",
+    "build_id": 2716,
+    "before_sha": "0000000000000000000000000000000000000000",
+    "gitlab_url": "http://gitlab_url/example_user/example-repository",
+    "sha": "6d59f23ff7fddbf175771c1b003a1b5135e4c475",
+    "build_finished_at": "2015-11-06 17:47:53 UTC",
+    "project_id": 22,
+    "ref": "master"
+}

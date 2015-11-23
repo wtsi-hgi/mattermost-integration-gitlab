@@ -1,0 +1,1 @@
+Example User pushed 2 commits into the `refs/heads/master` branch for project [example repository](http://gitlab_url/example_user/example-repository).

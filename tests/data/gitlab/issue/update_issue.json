@@ -1,0 +1,32 @@
+{
+    "object_attributes": {
+        "description": "content",
+        "iid": 1,
+        "url": "http://gitlab_url/example_user/example-repository/issues/1",
+        "created_at": "2015-11-06 17:48:25 UTC",
+        "title": "New ticket",
+        "updated_at": "2015-11-06 17:48:25 UTC",
+        "assignee_id": null,
+        "branch_name": null,
+        "state": "opened",
+        "updated_by_id": 2,
+        "action": "update",
+        "position": 0,
+        "author_id": 2,
+        "project_id": 102,
+        "milestone_id": null,
+        "id": 797
+    },
+    "object_kind": "issue",
+    "repository": {
+        "url": "gitlab@gitlab_url:example_user/example-repository.git",
+        "homepage": "http://gitlab_url/example_user/example-repository",
+        "description": null,
+        "name": "example repository"
+    },
+    "user": {
+        "username": "example_user",
+        "avatar_url": "http://www.gravatar.com/avatar/aaa?s=40&d=identicon",
+        "name": "Example User"
+    }
+}

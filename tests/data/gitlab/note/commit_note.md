@@ -1,0 +1,3 @@
+#### **New Comment** on [bf249e058f87ef90a14be04268efde573c8431e4](http://gitlab_url/example_user/example-repository/commit/bf249e058f87ef90a14be04268efde573c8431e4#note_3860)
+*[example_user](http://gitlab_url/u/example_user) commented on a commit in [example repository](http://gitlab_url/example_user/example-repository) on [2015-11-06 17:48:26 UTC](http://gitlab_url/example_user/example-repository/commit/bf249e058f87ef90a14be04268efde573c8431e4#note_3860)*
+ > new comment

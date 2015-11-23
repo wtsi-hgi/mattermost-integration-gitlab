@@ -1,0 +1,152 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+# Python Future imports
+from __future__ import unicode_literals, absolute_import, print_function
+
+# Python System imports
+import os
+import unittest
+import json
+
+# Third-party imports
+
+from mattermost_gitlab.mock_http import MockHttpServerMixin, get_available_port
+from mattermost_gitlab import server
+
+
+def relative_path(name):
+    return os.path.join(os.path.dirname(__file__), "data", name)
+
+
+def file_content(name):
+    with open(relative_path(name)) as fp:
+        return fp.read()
+
+
+class FlaskMixin(unittest.TestCase):
+
+    def setUp(self):
+        super(FlaskMixin, self).setUp()
+        self.app = server.app.test_client()
+
+
+class BaseTest(FlaskMixin):
+
+    def test_root(self):
+        resp = self.app.get('/')
+        self.assertEqual(resp.status_code, 200)
+
+    def test_get(self):
+        resp = self.app.get('/new_event')
+        self.assertEqual(resp.status_code, 405)
+
+
+class ServerTestMixin(MockHttpServerMixin, FlaskMixin):
+
+    port = get_available_port()
+    url = '/new_event'
+
+    def setUp(self):
+        super(ServerTestMixin, self).setUp()
+
+        mattermost_webhook_url = "http://127.0.0.1:{}".format(self.port)
+        _, _, options = server.parse_args([mattermost_webhook_url, "--tag", "--push"])
+        server.app.config.update(options)
+
+    def post(self, name):
+        return self.app.post(self.url, data=file_content(name), content_type='application/json')
+
+    def assertResponse(self, name):
+
+        gitlab_json_path = name + ".json"
+        mattermost_markdown_path = name + ".md"
+
+        resp = self.post(gitlab_json_path)
+
+        self.assertEqual(len(self.server.httpd.received_requests), 1)
+        self.assertEqual(resp.status_code, 200)
+        self.assertEqual(resp.data, b"OK")
+
+        mattermost_data = json.loads(self.server.httpd.received_requests[0]["post"].decode())
+        self.assertEqual(set(mattermost_data.keys()), {'username', 'text', 'icon_url'})
+
+        self.maxDiff = 1000
+        self.assertMultiLineEqual(mattermost_data["text"], file_content(mattermost_markdown_path))
+
+
+class IssueTest(ServerTestMixin):
+
+    def test_open(self):
+        self.assertResponse("gitlab/issue/open_issue")
+
+    def test_update(self):
+        self.assertResponse("gitlab/issue/update_issue")
+
+    def test_close(self):
+        self.assertResponse("gitlab/issue/close_issue")
+
+    def test_reopen(self):
+        self.assertResponse("gitlab/issue/reopen_issue")
+
+
+class MergeRequestTest(ServerTestMixin):
+
+    def test_open(self):
+        self.assertResponse("gitlab/merge_request/open_merge_request")
+
+    def test_update(self):
+        self.assertResponse("gitlab/merge_request/update_merge_request")
+
+    def test_close(self):
+        self.assertResponse("gitlab/merge_request/close_merge_request")
+
+    def test_reopen(self):
+        self.assertResponse("gitlab/merge_request/reopen_merge_request")
+
+    def test_merge(self):
+        self.assertResponse("gitlab/merge_request/merge_merge_request")
+
+
+class NoteTest(ServerTestMixin):
+
+    def test_commit(self):
+        self.assertResponse("gitlab/note/commit_note")
+
+    def test_issue(self):
+        self.assertResponse("gitlab/note/issue_note")
+
+    def test_merge_request(self):
+        self.assertResponse("gitlab/note/merge_request_note")
+
+
+class PushTest(ServerTestMixin):
+
+    def test_first_commit(self):
+        self.assertResponse("gitlab/push/first_commit")
+
+    def test_commit_master_branch(self):
+        self.assertResponse("gitlab/push/commit_master_branch")
+
+    def test_commit_dev_branch(self):
+        self.assertResponse("gitlab/push/commit_dev_branch")
+
+    def test_commit_merge_request(self):
+        self.assertResponse("gitlab/push/commit_merge_request")
+
+    def test_tag(self):
+        self.assertResponse("gitlab/push/tag")
+
+
+class CITest(ServerTestMixin):
+
+    url = "/new_ci_event"
+
+    def test_failed_build(self):
+        self.assertResponse("gitlab-ci/failed_build")
+
+    def test_successful_build(self):
+        self.assertResponse("gitlab-ci/successful_build")
+
+if __name__ == '__main__':
+    unittest.main()

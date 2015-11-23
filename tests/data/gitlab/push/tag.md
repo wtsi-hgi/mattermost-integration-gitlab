@@ -1,0 +1,1 @@
+Example User pushed tag `refs/tags/v0.1` to the project [example repository](http://gitlab_url/example_user/example-repository).
