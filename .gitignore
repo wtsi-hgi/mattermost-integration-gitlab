@@ -1,5 +1,6 @@
 *.swp
 *.egg-info
 *.pyc
+.tox
 .coverage
 htmlcov
