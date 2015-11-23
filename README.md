@@ -1,28 +1,33 @@
 # GitLab Integration Service for Mattermost
 
+[![Build Status](https://travis-ci.org/NotSqrt/mattermost-integration-gitlab.svg?branch=master)](https://travis-ci.org/NotSqrt/mattermost-integration-gitlab)
+[![Coverage Status](https://coveralls.io/repos/NotSqrt/mattermost-integration-gitlab/badge.svg?branch=master&service=github)](https://coveralls.io/github/NotSqrt/mattermost-integration-gitlab?branch=master)
+
 This integrations service posts [issue](http://doc.gitlab.com/ee/web_hooks/web_hooks.html#issues-events), [comment](http://doc.gitlab.com/ee/web_hooks/web_hooks.html#comment-events) and [merge request](http://doc.gitlab.com/ee/web_hooks/web_hooks.html#merge-request-events) events from a GitLab repository into specific Mattermost channels by formatting output from [GitLab's outgoing webhooks](https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/web_hooks/web_hooks.md) to [Mattermost's incoming webhooks](https://github.com/mattermost/platform/blob/master/doc/integrations/webhooks/Incoming-Webhooks.md).
 
 ## Project Goal
 
-The goal of this project is to provide a fully-functional template on which the Mattermost community can create their own integration services. Community members are invited to fork this repo to add improvements and to create new integrations. 
+The goal of this project is to provide a fully-functional template on which the Mattermost community can create their own integration services. Community members are invited to fork this repo to add improvements and to create new integrations.
 
-To have your work included on the [Mattermost integrations page](http://www.mattermost.org/community-applications/), please mail info@mattermost.com or tweet to [@MattermostHQ](https://twitter.com/mattermosthq). 
+To have your work included on the [Mattermost integrations page](http://www.mattermost.org/community-applications/), please mail info@mattermost.com or tweet to [@MattermostHQ](https://twitter.com/mattermosthq).
 
 ## Requirements
 
 To run this integration you need:
 
-1. A **web server** running **Ubuntu 14.04** and **Python 2.7** or compatible versions. 
+1. A **web server** running **Ubuntu 14.04** and **Python 2.7** or compatible versions.
 2. A **[GitLab account](https://about.gitlab.com/)** with a repository to which you have administrator access
 3. A **[Mattermost account](http://www.mattermost.org/)** where [incoming webhooks are enabled](https://github.com/mattermost/platform/blob/master/doc/integrations/webhooks/Incoming-Webhooks.md#enabling-incoming-webhooks)
 
 Many web server options will work, below we provide instructions for [**Heroku**](README.md#heroku-based-install) and a general [**Linux/Ubuntu**](README.md#linuxubuntu-1404-web-server-install) server.
 ### Heroku-based Install
 
-To install this project using Heroku, you will need: 
+**:heavy_exclamation_mark: This was not adapted to the new python package.**
+
+To install this project using Heroku, you will need:
 
 1. A **Heroku account**, available for free at [Heroku.com](https://signup.heroku.com/)
-2. A **GitHub account**, available for free at [GitHub.com](https://github.com/join) 
+2. A **GitHub account**, available for free at [GitHub.com](https://github.com/join)
 
 Here's how to start:
 
@@ -42,7 +47,7 @@ Here's how to start:
  3. (Recommended but optional): Encrypt your connection from GitLab to your project by selecting **Enable SSL verification**. If this option is not available and you're not familiar with how to set it up, contact your GitLab System Administrator for help.
  3. Click **Add Web Hook** and check that your new webhook entry is added to the **Web hooks** section below the button.
  4. Leave this page open as we'll come back to it to test that everything is working.
- 
+
 4. **Set up your Mattermost instance to receive incoming webhooks**
  1. Log in to your Mattermost account. Click the three dot menu at the top of the left-hand side and go to **Account Settings** > **Integrations** > **Incoming Webhooks**.
  2. Under **Add a new incoming webhook** select the channel in which you want GitLab notifications to appear, then click **Add** to create a new entry.
@@ -60,9 +65,9 @@ Here's how to start:
 
 ### Linux/Ubuntu 14.04 Web Server Install
 
-The following procedure shows how to install this project on a Linux web server running Ubuntu 14.04. The following instructions work behind a firewall so long as the web server has access to your GitLab and Mattermost instances. 
+The following procedure shows how to install this project on a Linux web server running Ubuntu 14.04. The following instructions work behind a firewall so long as the web server has access to your GitLab and Mattermost instances.
 
-To install this project using a Linux-based web server, you will need a Linux/Ubuntu 14.04 web server supporting Python 2.7 or a compatible version. Other compatible operating systems and Python versions should also work. 
+To install this project using a Linux-based web server, you will need a Linux/Ubuntu 14.04 web server supporting Python 2.7 or a compatible version. Other compatible operating systems and Python versions should also work.
 
 Here's how to start:
 
@@ -78,19 +83,26 @@ Here's how to start:
     - `python --version` If it's not installed you can find it [here](https://www.python.org/downloads/)
  4. Install **pip** and other essentials:
     - `sudo apt-get install python-pip python-dev build-essential`
- 5. Clone this GitHub repo:
-    - `git clone https://github.com/mattermost/mattermost-integration-gitlab.git`
-    - `cd mattermost-integration-gitlab`
+ 5. Create a virtualenv if you want to keep things separated:
  6. Install integration requirements:
-    - `sudo pip install -r requirements.txt`
- 7. Add the following lines to your `~/.bash_profile`:
-    - `export MATTERMOST_WEBHOOK_URL=https://<your-mattermost-webhook-URL>` This is the URL you copied in the last section
-    - `export PUSH_TRIGGER=True`
-    - `export PORT=<your-port-number>` The port number you want the integration to listen on (defaults to 5000)
- 8. Source your bash profile:
-    - `source ~/.bash_profile`
- 9. Run the server:
-    - `python server.py`
+    - `[sudo] pip install git+https://github.com/NotSqrt/mattermost-integration-gitlab`
+ 7. Run the server:
+    - `mattermost_gitlab --help`
+    - `mattermost_gitlab $MATTERMOST_WEBHOOK_URL`
+ 8. You may want to add an upstart script to auto-start mattermost_gitlab at boot:
+
+```
+# /etc/init/mattermost-gitlab.conf
+start on runlevel [2345]
+stop on runlevel [016]
+respawn
+
+# Change this to the relevant user
+setuid mattermost
+
+# Change the path if necessary, add options if need be
+exec /home/mattermost/ve/bin/mattermost_gitlab http://mattermost/hooks/hook-id
+```
 
 3. **Connect your project to your GitLab account for outgoing webhooks**
  1. Log in to GitLab account and open the project from which you want to receive updates and to which you have administrator access. From the left side of the project screen, click on **Settings** > **Web Hooks**. In the **URL** field enter `http://<your-web-server-domain>/` from the previous step, plus the word `new_event` to create an entry that reads **`http://<your-web-server-domain>/new_event`** so events from your GitLab project are sent to your Heroku server. Make sure your URL has a leading `http://` or `https://`.
