@@ -57,22 +57,31 @@ class ServerTestMixin(MockHttpServerMixin, FlaskMixin):
     def post(self, name):
         return self.app.post(self.url, data=file_content(name), content_type='application/json')
 
-    def assertResponse(self, name):
+    def assertGitlabHookWorks(self, name):
 
         gitlab_json_path = name + ".json"
-        mattermost_markdown_path = name + ".md"
 
         resp = self.post(gitlab_json_path)
 
-        self.assertEqual(len(self.server.httpd.received_requests), 1)
         self.assertEqual(resp.status_code, 200)
         self.assertEqual(resp.data, b"OK")
 
+    def assertResponse(self, name):
+
+        self.assertGitlabHookWorks(name)
+
+        self.assertEqual(len(self.server.httpd.received_requests), 1)
+
+        mattermost_markdown_path = name + ".md"
         mattermost_data = json.loads(self.server.httpd.received_requests[0]["post"].decode())
         self.assertEqual(set(mattermost_data.keys()), {'username', 'text', 'icon_url'})
 
         self.maxDiff = 1000
         self.assertMultiLineEqual(mattermost_data["text"], file_content(mattermost_markdown_path))
+
+    def assertResponseNotSent(self, name):
+        self.assertGitlabHookWorks(name)
+        self.assertEqual(len(self.server.httpd.received_requests), 0)
 
 
 class IssueTest(ServerTestMixin):
@@ -81,7 +90,7 @@ class IssueTest(ServerTestMixin):
         self.assertResponse("gitlab/issue/open_issue")
 
     def test_update(self):
-        self.assertResponse("gitlab/issue/update_issue")
+        self.assertResponseNotSent("gitlab/issue/update_issue")
 
     def test_close(self):
         self.assertResponse("gitlab/issue/close_issue")

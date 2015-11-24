@@ -87,6 +87,9 @@ class IssueEvent(BaseEvent):
     def action(self):
         return self.data['object_attributes']['action']
 
+    def should_report_event(self, report_events):
+        return super(IssueEvent, self).should_report_event(report_events) and self.action != "update"
+
     def format(self):
         description = add_markdown_quotes(self.data['object_attributes']['description'])
 
