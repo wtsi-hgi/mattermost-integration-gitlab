@@ -105,7 +105,7 @@ exec /home/mattermost/ve/bin/mattermost_gitlab http://mattermost/hooks/hook-id
 ```
 
 3. **Connect your project to your GitLab account for outgoing webhooks**
- 1. Log in to GitLab account and open the project from which you want to receive updates and to which you have administrator access. From the left side of the project screen, click on **Settings** > **Web Hooks**. In the **URL** field enter `http://<your-web-server-domain>/` from the previous step, plus the word `new_event` to create an entry that reads **`http://<your-web-server-domain>/new_event`** so events from your GitLab project are sent to your Heroku server. Make sure your URL has a leading `http://` or `https://`.
+ 1. Log in to GitLab account and open the project from which you want to receive updates and to which you have administrator access. From the left side of the project screen, click on **Settings** > **Web Hooks**. In the **URL** field enter `http://<your-web-server-domain>/` from the previous step, plus the word `new_event` to create an entry that reads **`http://<your-web-server-domain>/new_event`** so events from your GitLab project are sent to your web server. Make sure your URL has a leading `http://` or `https://`.
  2. On the same page, under **Trigger** select **Push events**, **Comment events**, **Issue events**, **Merge Request events**
  3. (Recommended but optional): Encrypt your connection from GitLab to your project by selecting **Enable SSL verification**. If this option is not available and you're not familiar with how to set it up, contact your GitLab System Administrator for help.
  4. Click **Add Web Hook** and check that your new webhook entry is added to the **Web hooks** section below the button.
