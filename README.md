@@ -91,9 +91,8 @@ Here's how to start:
  7. Run the server:
     - `mattermost_gitlab --help`
     - `mattermost_gitlab $MATTERMOST_WEBHOOK_URL`
-    You will see the output similar to *Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)*. The `http://0.0.0.0:5000/` will 
-    be refered below as the `https://<your-mattermost-integration-URL>`). You may change the IP:PORT with the adequate command-line
-    options (see --help)
+    You will see the output similar to `Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)`. This is default IP:PORT pair
+    the integration service will listen on. We will refer to this address as the `https://<your-mattermost-integration-URL>`). You may change the IP:PORT with the adequate command-line options (see --help)
  8. You may want to add an upstart script to auto-start mattermost_gitlab at boot:
 ```
 # /etc/init/mattermost-gitlab.conf
@@ -107,7 +106,7 @@ setuid mattermost
 # Change the path if necessary, add options if need be
 exec /home/mattermost/ve/bin/mattermost_gitlab http://mattermost/hooks/hook-id
 ```
- 9. Instead of `/etc/init/` script you may want to handle the mattermost_gitlab with supervisor (http://supervisord.org/). The
+ Instead of `/etc/init/` script you may want to handle the mattermost_gitlab with supervisor (http://supervisord.org/). The
     sample config file can be as simple as:
 ```
 [program:mattermost-gitlab]
