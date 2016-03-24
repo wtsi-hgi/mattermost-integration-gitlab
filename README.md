@@ -84,11 +84,17 @@ Here's how to start:
  4. Install **pip** and other essentials:
     - `sudo apt-get install python-pip python-dev build-essential`
  5. Create a virtualenv if you want to keep things separated:
+    - `[sudo] pip install virtualenv`
+    - to handle virtual envs even simpler consider the virtualenvwrapper:  `[sudo] pip install virtualenvwrapper`
  6. Install integration requirements:
     - `[sudo] pip install git+https://github.com/NotSqrt/mattermost-integration-gitlab`
  7. Run the server:
     - `mattermost_gitlab --help`
     - `mattermost_gitlab $MATTERMOST_WEBHOOK_URL`
+    You will see the output similar to `Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)`. The `http://0.0.0.0:5000/` will 
+    be refered below as the `https://<your-mattermost-integration-URL>`). You may change the IP:PORT with the `mattermost_gitlab` command-line
+    options.
+
  8. You may want to add an upstart script to auto-start mattermost_gitlab at boot:
 
 ```
@@ -103,9 +109,21 @@ setuid mattermost
 # Change the path if necessary, add options if need be
 exec /home/mattermost/ve/bin/mattermost_gitlab http://mattermost/hooks/hook-id
 ```
+ 9. Instead of `/etc/init/` script you may want to handle the mattermost_gitlab with supervisor (http://supervisord.org/). The
+    sample config file can be as simple as:
+
+```
+[program:mattermost-gitlab]
+user=mattermost
+command=/home/mattermost/ve/mattermost/bin/mattermost_gitlab http://mattermost/hooks/hook-id
+autostart=true
+autorestart=true
+stdout_logfile=/home/mattermost/logs/mattermost_gitlab.log
+redirect_stderr=true
+```
 
 3. **Connect your project to your GitLab account for outgoing webhooks**
- 1. Log in to GitLab account and open the project from which you want to receive updates and to which you have administrator access. From the left side of the project screen, click on **Settings** > **Web Hooks**. In the **URL** field enter `http://<your-web-server-domain>/` from the previous step, plus the word `new_event` to create an entry that reads **`http://<your-web-server-domain>/new_event`** so events from your GitLab project are sent to your web server. Make sure your URL has a leading `http://` or `https://`.
+ 1. Log in to GitLab account and open the project from which you want to receive updates and to which you have administrator access. From the left side of the project screen, click on **Settings** > **Web Hooks**. In the **URL** field enter `http://<your-mattermost-integration-URL>/new_event` (notice extra `new_event` URL argument). On this address the integration service will be receiving the events from your GitLab project. Make sure your URL has a leading `http://` or `https://`.
  2. On the same page, under **Trigger** select **Push events**, **Comment events**, **Issue events**, **Merge Request events**
  3. (Recommended but optional): Encrypt your connection from GitLab to your project by selecting **Enable SSL verification**. If this option is not available and you're not familiar with how to set it up, contact your GitLab System Administrator for help.
  4. Click **Add Web Hook** and check that your new webhook entry is added to the **Web hooks** section below the button.
