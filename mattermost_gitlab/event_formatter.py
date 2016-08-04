@@ -72,14 +72,17 @@ class PushEvent(BaseEvent):
         if self.data['total_commits_count'] > 1:
             description += "s"
 
-        return '%s pushed %s into the `%s` branch for project [%s](%s).' % (
+        text = '%s pushed %s into the `%s` branch for project [%s](%s).\n' % (
             self.data['user_name'],
             description,
             self.data['ref'],
             self.data['repository']['name'],
             self.data['repository']['homepage']
         )
-
+        for val in self.data['commits']:
+            text += "[%s](%s)" % (val['message'], val['url'])
+            
+        return text
 
 class IssueEvent(BaseEvent):
 
