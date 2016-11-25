@@ -95,7 +95,7 @@ Here's how to start:
     the integration service will listen on. We will refer to this address as the `https://<your-mattermost-integration-URL>`). You may change the IP:PORT with the adequate command-line options (see --help)
  8. You may want to add an upstart script to auto-start mattermost_gitlab at boot:
 
-### Using /etc/init script
+### Using upstart script
 
 ```
 # /etc/init/mattermost-gitlab.conf
