@@ -82,7 +82,7 @@ class PushEvent(BaseEvent):
         for val in self.data['commits']:
             text += "[%s](%s)" % (val['message'], val['url'])
 
-        return text.encode('ascii')
+        return unicode(text)
 
 class IssueEvent(BaseEvent):
 
