@@ -1,3 +1,3 @@
-#### **New Comment** on [bf249e058f87ef90a14be04268efde573c8431e4](http://gitlab_url/example_user/example-repository/commit/bf249e058f87ef90a14be04268efde573c8431e4#note_3860)
-*[example_user](http://gitlab_url/u/example_user) commented on a commit in [example repository](http://gitlab_url/example_user/example-repository) on [2015-11-06 17:48:26 UTC](http://gitlab_url/example_user/example-repository/commit/bf249e058f87ef90a14be04268efde573c8431e4#note_3860)*
+#### **New Comment** on [33477153c450b1ce27025406b9e1e3c6de16c3b9](http://gitlab.example.com/root/example-repository/commit/33477153c450b1ce27025406b9e1e3c6de16c3b9#note_351)
+*[root](http://gitlab.example.com/u/root) commented on a commit in [example repository](http://gitlab.example.com/root/example-repository) on [2016-12-16 18:13:27 UTC](http://gitlab.example.com/root/example-repository/commit/33477153c450b1ce27025406b9e1e3c6de16c3b9#note_351)*
  > new comment

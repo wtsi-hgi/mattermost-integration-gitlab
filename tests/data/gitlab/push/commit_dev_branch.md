@@ -1,1 +1,1 @@
-Example User pushed the first commit into the `refs/heads/dev` branch for project [example repository](http://gitlab_url/example_user/example-repository).
+Example User pushed 1 commit into the `refs/heads/dev` branch for project [example repository](http://gitlab.example.com/root/example-repository).
