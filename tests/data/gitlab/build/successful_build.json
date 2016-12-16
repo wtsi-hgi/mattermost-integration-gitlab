@@ -1,0 +1,42 @@
+{
+    "before_sha": "92a9bc78346f6cf9db958eec07a530920ac1bcbd",
+    "build_allow_failure": false,
+    "build_duration": 0.177013,
+    "build_finished_at": "2016-12-16 18:13:35 UTC",
+    "build_id": 131,
+    "build_name": "success",
+    "build_stage": "test",
+    "build_started_at": "2016-12-16 18:13:35 UTC",
+    "build_status": "success",
+    "commit": {
+        "author_email": "admin@example.com",
+        "author_name": "Example User",
+        "duration": null,
+        "finished_at": null,
+        "id": 66,
+        "message": "Add CI",
+        "sha": "92a9bc78346f6cf9db958eec07a530920ac1bcbd",
+        "started_at": "2016-12-16 18:13:35 UTC",
+        "status": "running"
+    },
+    "object_kind": "build",
+    "project_id": 61,
+    "project_name": "Example User / example repository",
+    "ref": "master",
+    "repository": {
+        "description": null,
+        "git_http_url": "http://gitlab.example.com/root/example-repository.git",
+        "git_ssh_url": "git@gitlab.example.com:root/example-repository.git",
+        "homepage": "http://gitlab.example.com/root/example-repository",
+        "name": "example repository",
+        "url": "git@gitlab.example.com:root/example-repository.git",
+        "visibility_level": 0
+    },
+    "sha": "92a9bc78346f6cf9db958eec07a530920ac1bcbd",
+    "tag": false,
+    "user": {
+        "email": "admin@example.com",
+        "id": 1,
+        "name": "Example User"
+    }
+}

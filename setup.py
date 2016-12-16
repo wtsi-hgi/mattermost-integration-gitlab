@@ -16,7 +16,7 @@ setuptools.setup(
 
     install_requires=[
         "Flask==0.10.1",
-        "requests==2.8.1",
+        "requests",
         "six",
     ],
 
