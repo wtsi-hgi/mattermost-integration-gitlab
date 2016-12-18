@@ -8,6 +8,7 @@ from __future__ import unicode_literals, absolute_import, print_function
 import os
 import unittest
 import json
+import codecs
 
 # Third-party imports
 
@@ -20,7 +21,7 @@ def relative_path(name):
 
 
 def file_content(name):
-    with open(relative_path(name)) as fp:
+    with codecs.open(relative_path(name), encoding='utf-8') as fp:
         return fp.read()
 
 

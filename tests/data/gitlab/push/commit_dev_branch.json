@@ -10,7 +10,7 @@
                 "name": "Example User"
             },
             "id": "c5ccce8cd46a277dd0723ad5954f44a562c5c67e",
-            "message": "bump2",
+            "message": "bump2 with unicode \u21d7 \u27fe",
             "modified": [
                 "README.md"
             ],

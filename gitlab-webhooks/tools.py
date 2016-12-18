@@ -199,7 +199,7 @@ def run(*args, **kwargs):
             # 1 push message about new commit
             hook_calls.expect_call('push', 'commit_dev_branch')
             readme_file.content = CI_SCRIPT + '\n# even more content\n'
-            readme_file.save(branch_name='dev', commit_message='bump2')
+            readme_file.save(branch_name='dev', commit_message='bump2 with unicode ⇗ ⟾')
 
             ##############
             # issue events
