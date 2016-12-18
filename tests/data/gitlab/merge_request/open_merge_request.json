@@ -1,64 +1,105 @@
 {
     "object_attributes": {
-        "target_project_id": 102,
-        "source_branch": "dev",
-        "updated_at": "2015-11-06 17:48:27 UTC",
-        "work_in_progress": false,
-        "assignee_id": null,
-        "updated_by_id": null,
-        "id": 232,
-        "locked_at": null,
-        "merge_error": null,
-        "title": "Master",
-        "source": {
-            "name": "example repository",
-            "namespace": "example_user",
-            "web_url": "http://gitlab_url/example_user/example-repository",
-            "ssh_url": "gitlab@gitlab_url:example_user/example-repository.git",
-            "http_url": "http://gitlab_url/example_user/example-repository.git",
-            "visibility_level": 0
-        },
-        "state": "opened",
-        "last_commit": {
-            "url": "http://gitlab_url/example_user/example-repository/commit/a0e40a9b8e8bd3ad3acccf64c016244109b15d37",
-            "timestamp": "2015-11-06T18:48:24+01:00",
-            "message": "bump2\n",
-            "id": "a0e40a9b8e8bd3ad3acccf64c016244109b15d37",
-            "author": {
-                "email": "user@example.com",
-                "name": "Example User"
-            }
-        },
-        "description": null,
-        "iid": 1,
-        "target_branch": "master",
-        "milestone_id": null,
-        "source_project_id": 102,
-        "merge_status": "unchecked",
-        "target": {
-            "name": "example repository",
-            "namespace": "example_user",
-            "web_url": "http://gitlab_url/example_user/example-repository",
-            "ssh_url": "gitlab@gitlab_url:example_user/example-repository.git",
-            "http_url": "http://gitlab_url/example_user/example-repository.git",
-            "visibility_level": 0
-        },
-        "url": "http://gitlab_url/example_user/example-repository/merge_requests/1",
-        "created_at": "2015-11-06 17:48:27 UTC",
         "action": "open",
+        "assignee_id": null,
+        "author_id": 1,
+        "created_at": "2016-12-16 18:13:27 UTC",
+        "deleted_at": null,
+        "description": null,
+        "id": 34,
+        "iid": 1,
+        "in_progress_merge_commit_sha": null,
+        "last_commit": {
+            "author": {
+                "email": "admin@example.com",
+                "name": "Example User"
+            },
+            "id": "c5ccce8cd46a277dd0723ad5954f44a562c5c67e",
+            "message": "bump2",
+            "timestamp": "2016-12-16T18:13:26+00:00",
+            "url": "http://gitlab.example.com/root/example-repository/commit/c5ccce8cd46a277dd0723ad5954f44a562c5c67e"
+        },
+        "lock_version": null,
+        "locked_at": null,
+        "merge_commit_sha": null,
+        "merge_error": null,
+        "merge_params": {
+            "force_remove_source_branch": null
+        },
+        "merge_status": "unchecked",
+        "merge_user_id": null,
+        "merge_when_build_succeeds": false,
+        "milestone_id": null,
         "position": 0,
-        "author_id": 2
+        "source": {
+            "avatar_url": null,
+            "default_branch": "master",
+            "description": null,
+            "git_http_url": "http://gitlab.example.com/root/example-repository.git",
+            "git_ssh_url": "git@gitlab.example.com:root/example-repository.git",
+            "homepage": "http://gitlab.example.com/root/example-repository",
+            "http_url": "http://gitlab.example.com/root/example-repository.git",
+            "name": "example repository",
+            "namespace": "root",
+            "path_with_namespace": "root/example-repository",
+            "ssh_url": "git@gitlab.example.com:root/example-repository.git",
+            "url": "git@gitlab.example.com:root/example-repository.git",
+            "visibility_level": 0,
+            "web_url": "http://gitlab.example.com/root/example-repository"
+        },
+        "source_branch": "dev",
+        "source_project_id": 61,
+        "state": "opened",
+        "target": {
+            "avatar_url": null,
+            "default_branch": "master",
+            "description": null,
+            "git_http_url": "http://gitlab.example.com/root/example-repository.git",
+            "git_ssh_url": "git@gitlab.example.com:root/example-repository.git",
+            "homepage": "http://gitlab.example.com/root/example-repository",
+            "http_url": "http://gitlab.example.com/root/example-repository.git",
+            "name": "example repository",
+            "namespace": "root",
+            "path_with_namespace": "root/example-repository",
+            "ssh_url": "git@gitlab.example.com:root/example-repository.git",
+            "url": "git@gitlab.example.com:root/example-repository.git",
+            "visibility_level": 0,
+            "web_url": "http://gitlab.example.com/root/example-repository"
+        },
+        "target_branch": "master",
+        "target_project_id": 61,
+        "title": "merge cool feature",
+        "updated_at": "2016-12-16 18:13:27 UTC",
+        "updated_by_id": null,
+        "url": "http://gitlab.example.com/root/example-repository/merge_requests/1",
+        "work_in_progress": false
     },
     "object_kind": "merge_request",
-    "repository": {
-        "url": "gitlab@gitlab_url:example_user/example-repository.git",
-        "homepage": "http://gitlab_url/example_user/example-repository",
+    "project": {
+        "avatar_url": null,
+        "default_branch": "master",
         "description": null,
-        "name": "example repository"
+        "git_http_url": "http://gitlab.example.com/root/example-repository.git",
+        "git_ssh_url": "git@gitlab.example.com:root/example-repository.git",
+        "homepage": "http://gitlab.example.com/root/example-repository",
+        "http_url": "http://gitlab.example.com/root/example-repository.git",
+        "name": "example repository",
+        "namespace": "root",
+        "path_with_namespace": "root/example-repository",
+        "ssh_url": "git@gitlab.example.com:root/example-repository.git",
+        "url": "git@gitlab.example.com:root/example-repository.git",
+        "visibility_level": 0,
+        "web_url": "http://gitlab.example.com/root/example-repository"
+    },
+    "repository": {
+        "description": null,
+        "homepage": "http://gitlab.example.com/root/example-repository",
+        "name": "example repository",
+        "url": "git@gitlab.example.com:root/example-repository.git"
     },
     "user": {
-        "username": "example_user",
-        "avatar_url": "http://www.gravatar.com/avatar/aaa?s=40&d=identicon",
-        "name": "Example User"
+        "avatar_url": "http://www.gravatar.com/avatar/e64c7d89f26bd1972efa854d13d7dd61?s=80&d=identicon",
+        "name": "Example User",
+        "username": "root"
     }
 }

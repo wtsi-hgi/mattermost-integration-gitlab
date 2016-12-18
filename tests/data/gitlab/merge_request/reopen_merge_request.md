@@ -1,2 +1,2 @@
-#### [!1 - Master](http://gitlab_url/example_user/example-repository/merge_requests/1)
-*[example_user](http://gitlab_url/u/example_user) reopened a merge request in [example repository](http://gitlab_url/example_user/example-repository) on [2015-11-06 17:48:27 UTC](http://gitlab_url/example_user/example-repository/merge_requests/1)*
+#### [!1 - merge cool feature](http://gitlab.example.com/root/example-repository/merge_requests/1)
+*[root](http://gitlab.example.com/u/root) reopened a merge request in [example repository](http://gitlab.example.com/root/example-repository) on [2016-12-16 18:13:27 UTC](http://gitlab.example.com/root/example-repository/merge_requests/1)*

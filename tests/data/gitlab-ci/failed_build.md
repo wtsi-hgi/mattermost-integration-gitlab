@@ -1,1 +1,0 @@
-:x: Failed build for the project [Example User / example repository](http://gitlab_url/example_user/example-repository) on commit 6d59f23ff7fddbf175771c1b003a1b5135e4c475.

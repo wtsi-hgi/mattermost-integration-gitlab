@@ -1,3 +1,3 @@
-#### **New Comment** on [#1 - New ticket](http://gitlab_url/example_user/example-repository/issues/1#note_3859)
-*[example_user](http://gitlab_url/u/example_user) commented on an issue in [example repository](http://gitlab_url/example_user/example-repository) on [2015-11-06 17:48:26 UTC](http://gitlab_url/example_user/example-repository/issues/1#note_3859)*
+#### **New Comment** on [#1 - New ticket](http://gitlab.example.com/root/example-repository/issues/1#note_350)
+*[root](http://gitlab.example.com/u/root) commented on an issue in [example repository](http://gitlab.example.com/root/example-repository) on [2016-12-16 18:13:27 UTC](http://gitlab.example.com/root/example-repository/issues/1#note_350)*
  > new comment

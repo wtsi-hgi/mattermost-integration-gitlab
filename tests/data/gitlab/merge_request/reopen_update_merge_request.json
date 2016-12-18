@@ -49,7 +49,7 @@
         },
         "source_branch": "dev",
         "source_project_id": 61,
-        "state": "opened",
+        "state": "reopened",
         "target": {
             "avatar_url": null,
             "default_branch": "master",

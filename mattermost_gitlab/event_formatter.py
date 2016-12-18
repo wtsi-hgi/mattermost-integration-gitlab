@@ -239,17 +239,25 @@ class MergeEvent(BaseEvent):
 
 class CIEvent(BaseEvent):
 
+    icons = {
+        "success": ':white_check_mark:',
+        "failed": ':x:',
+    }
+
     def __init__(self, data):
         self.data = data
         self.object_kind = "ci"
 
     def format(self):
-        icon = ':white_check_mark:' if self.data['build_status'] == "success" else ':x:'
-        return '%s %s build for the project [%s](%s) on commit %s.' % (
-            icon,
+
+        icon = self.icons.get(self.data['build_status'], '')
+        return '%s%s build %s/%s for the project [%s](%s) on commit %s.' % (
+            (icon + ' ') if icon else '',
             self.data['build_status'].title(),
+            self.data['build_stage'],
+            self.data['build_name'],
             self.data['project_name'],
-            self.data['gitlab_url'],
+            self.data.get('gitlab_url', self.data.get('repository', {}).get('homepage')),
             self.data['sha'],
         )
 
@@ -260,6 +268,7 @@ EVENT_CLASS_MAP = {
     constants.TAG_EVENT: TagEvent,
     constants.COMMENT_EVENT: NoteEvent,
     constants.MERGE_EVENT: MergeEvent,
+    constants.BUILD_EVENT: CIEvent,
 }
 
 

@@ -1,0 +1,20 @@
+
+Aim: generate all possible hook calls, and save the resulting JSON file for tests.
+For this, we set up a gitlab instance in docker, and interact with it with the python API for gitlab.
+
+# start the gitlab instance.
+# By providing initial_root_password, the 'root' user is already set up
+# and can be used right away in the api
+docker pull gitlab/gitlab-ce
+sudo docker run --detach --hostname gitlab.example.com --name gitlab --publish-all \
+	--env GITLAB_OMNIBUS_CONFIG="gitlab_rails['initial_root_password'] = 'password'" \
+	gitlab/gitlab-ce:latest
+
+
+# start the gitlab-runner instance.
+# The actual gitlab-runner will be registered later.
+docker pull gitlab/gitlab-runner:latest
+sudo docker run --detach --name gitlab-runner --link gitlab gitlab/gitlab-runner:latest
+
+pip install -r requirements.txt
+python3.5 tools.py run

@@ -1,7 +1,7 @@
 {
-    "after": "d2b94519881dc201da8151d6344eab0055f15a44",
-    "before": "2e03a84ed69727606a8d662b60125c6c48f6484f",
-    "checkout_sha": "d2b94519881dc201da8151d6344eab0055f15a44",
+    "after": "2e03a84ed69727606a8d662b60125c6c48f6484f",
+    "before": "0000000000000000000000000000000000000000",
+    "checkout_sha": "2e03a84ed69727606a8d662b60125c6c48f6484f",
     "commits": [
         {
             "added": [],
@@ -9,34 +9,19 @@
                 "email": "admin@example.com",
                 "name": "Example User"
             },
-            "id": "c5ccce8cd46a277dd0723ad5954f44a562c5c67e",
-            "message": "bump2",
+            "id": "2e03a84ed69727606a8d662b60125c6c48f6484f",
+            "message": "bump",
             "modified": [
                 "README.md"
             ],
             "removed": [],
-            "timestamp": "2016-12-16T18:13:26+00:00",
-            "url": "http://gitlab.example.com/root/example-repository/commit/c5ccce8cd46a277dd0723ad5954f44a562c5c67e"
-        },
-        {
-            "added": [],
-            "author": {
-                "email": "admin@example.com",
-                "name": "Example User"
-            },
-            "id": "d2b94519881dc201da8151d6344eab0055f15a44",
-            "message": "Merge branch 'dev' into 'master'\n\nmerge cool feature\n\nNew description\n\nSee merge request !1",
-            "modified": [
-                "README.md"
-            ],
-            "removed": [],
-            "timestamp": "2016-12-16T18:13:28+00:00",
-            "url": "http://gitlab.example.com/root/example-repository/commit/d2b94519881dc201da8151d6344eab0055f15a44"
+            "timestamp": "2016-12-16T18:13:25+00:00",
+            "url": "http://gitlab.example.com/root/example-repository/commit/2e03a84ed69727606a8d662b60125c6c48f6484f"
         }
     ],
-    "event_name": "push",
+    "event_name": "tag_push",
     "message": null,
-    "object_kind": "push",
+    "object_kind": "tag_push",
     "project": {
         "avatar_url": null,
         "default_branch": "master",
@@ -54,7 +39,7 @@
         "web_url": "http://gitlab.example.com/root/example-repository"
     },
     "project_id": 61,
-    "ref": "refs/heads/master",
+    "ref": "refs/tags/v0.1",
     "repository": {
         "description": null,
         "git_http_url": "http://gitlab.example.com/root/example-repository.git",
@@ -64,7 +49,7 @@
         "url": "git@gitlab.example.com:root/example-repository.git",
         "visibility_level": 0
     },
-    "total_commits_count": 2,
+    "total_commits_count": 1,
     "user_avatar": "http://www.gravatar.com/avatar/e64c7d89f26bd1972efa854d13d7dd61?s=80&d=identicon",
     "user_email": "admin@example.com",
     "user_id": 1,

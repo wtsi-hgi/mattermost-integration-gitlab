@@ -16,7 +16,7 @@ setuptools.setup(
 
     install_requires=[
         "Flask==0.10.1",
-        "requests==2.8.1",
+        "requests",
         "six",
     ],
 
@@ -27,6 +27,7 @@ setuptools.setup(
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
     ],
 
     entry_points={

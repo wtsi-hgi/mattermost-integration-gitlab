@@ -76,7 +76,7 @@ class ServerTestMixin(MockHttpServerMixin, FlaskMixin):
         mattermost_data = json.loads(self.server.httpd.received_requests[0]["post"].decode())
         self.assertEqual(set(mattermost_data.keys()), {'username', 'text', 'icon_url'})
 
-        self.maxDiff = 1000
+        self.maxDiff = 1600
         self.assertMultiLineEqual(mattermost_data["text"], file_content(mattermost_markdown_path))
 
     def assertResponseNotSent(self, name):
@@ -137,6 +137,9 @@ class PushTest(ServerTestMixin):
     def test_commit_master_branch(self):
         self.assertResponse("gitlab/push/commit_master_branch")
 
+    def test_create_dev_branch(self):
+        self.assertResponse("gitlab/push/create_dev_branch")
+
     def test_commit_dev_branch(self):
         self.assertResponse("gitlab/push/commit_dev_branch")
 
@@ -144,18 +147,24 @@ class PushTest(ServerTestMixin):
         self.assertResponse("gitlab/push/commit_merge_request")
 
     def test_tag(self):
-        self.assertResponse("gitlab/push/tag")
+        self.assertResponse("gitlab/tag_push/tag")
 
 
-class CITest(ServerTestMixin):
+class BuildTest(ServerTestMixin):
 
     url = "/new_ci_event"
 
+    def test_create_build(self):
+        self.assertResponse("gitlab/build/create_build_1")
+
+    def test_start_build(self):
+        self.assertResponse("gitlab/build/start_build_1")
+
     def test_failed_build(self):
-        self.assertResponse("gitlab-ci/failed_build")
+        self.assertResponse("gitlab/build/failed_build")
 
     def test_successful_build(self):
-        self.assertResponse("gitlab-ci/successful_build")
+        self.assertResponse("gitlab/build/successful_build")
 
 if __name__ == '__main__':
     unittest.main()

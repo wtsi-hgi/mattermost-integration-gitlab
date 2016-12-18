@@ -1,2 +1,3 @@
-#### [New ticket](http://gitlab_url/example_user/example-repository/issues/1)
-*[Issue #1](http://gitlab_url/example_user/example-repository/issues/1) created by example_user in [example repository](http://gitlab_url/example_user/example-repository) on [2015-11-06 17:48:25 UTC](http://gitlab_url/example_user/example-repository/issues/1)*
+#### [New ticket](http://gitlab.example.com/root/example-repository/issues/1)
+*[Issue #1](http://gitlab.example.com/root/example-repository/issues/1) created by root in [example repository](http://gitlab.example.com/root/example-repository) on [2016-12-16 18:13:26 UTC](http://gitlab.example.com/root/example-repository/issues/1)*
+ > Something useful here.
