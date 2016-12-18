@@ -37,7 +37,7 @@ def get_http_port():
     cmd = subprocess.run(['docker', 'ps', '-a'], stdout=subprocess.PIPE)
 
     for line in cmd.stdout.splitlines():
-        if b'gitlab/gitlab-ce:latest' in line:
+        if b'gitlab/gitlab-ce:' in line:
             match = re.search(br':(\d+)->80/tcp', line)
             if match:
                 return int(match.group(1))
@@ -52,7 +52,7 @@ def dockerhost_ip():
     # ip route | awk '/docker/ { print $NF }'
     cmd = subprocess.run(['ip', 'route'], stdout=subprocess.PIPE)
     for line in cmd.stdout.decode().splitlines():
-        if 'docker' in line:
+        if 'docker' in line and 'src' in line:
             return line.split()[-1]
 
 
@@ -93,7 +93,7 @@ async def handle(request):
     kind = data['object_kind']
     expected_call = hook_calls.expected_calls[hook_calls.count - 1]
     if kind != expected_call[0]:
-        print("Expected", expected_call)
+        print("Expected", expected_call, ", got", kind)
     else:
         dump(data, kind, expected_call[1])
 
