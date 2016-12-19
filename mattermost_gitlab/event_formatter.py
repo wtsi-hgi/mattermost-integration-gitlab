@@ -253,13 +253,16 @@ class CIEvent(BaseEvent):
     def format(self):
 
         icon = self.icons.get(self.data['build_status'], '')
-        return '%s%s build %s/%s for the project [%s](%s) on commit %s.' % (
+        homepage = self.data.get('gitlab_url', self.data.get('repository', {}).get('homepage'))
+        build_url = '%s/builds/%s' % (homepage, self.data['build_id'])
+        return '%s%s [build %s/%s](%s) for the project [%s](%s) on commit %s.' % (
             (icon + ' ') if icon else '',
             self.data['build_status'].title(),
             self.data['build_stage'],
             self.data['build_name'],
+            build_url,
             self.data['project_name'],
-            self.data.get('gitlab_url', self.data.get('repository', {}).get('homepage')),
+            homepage,
             self.data['sha'],
         )
 

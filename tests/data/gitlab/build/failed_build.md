@@ -1,1 +1,1 @@
-:x: Failed build test/fail for the project [Example User / example repository](http://gitlab.example.com/root/example-repository) on commit 92a9bc78346f6cf9db958eec07a530920ac1bcbd.
+:x: Failed [build test/fail](http://gitlab.example.com/root/example-repository/builds/132) for the project [Example User / example repository](http://gitlab.example.com/root/example-repository) on commit 92a9bc78346f6cf9db958eec07a530920ac1bcbd.
