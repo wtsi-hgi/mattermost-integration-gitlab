@@ -9,7 +9,10 @@ python:
   - 3.5
 
 install:
-  - pip install coveralls -e .
+  - pip install coveralls flake8 -e .
+
+before_script:
+  - flake8 --ignore=E501 mattermost_gitlab tests
 
 script:
   - coverage run --source=mattermost_gitlab,tests tests/test.py
