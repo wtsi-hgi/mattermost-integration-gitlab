@@ -1,2 +1,2 @@
-Example User pushed the first commit into the `refs/heads/master` branch for project [example repository](http://gitlab.example.com/root/example-repository).
-[Create project](http://gitlab.example.com/root/example-repository/commit/33477153c450b1ce27025406b9e1e3c6de16c3b9)
+Example User pushed the first commit into the `refs/heads/master` branch for project [example repository](http://gitlab.example.com/root/example-repository):
+* [Create project](http://gitlab.example.com/root/example-repository/commit/33477153c450b1ce27025406b9e1e3c6de16c3b9)

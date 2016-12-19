@@ -1,2 +1,2 @@
-Example User pushed 1 commit into the `refs/heads/dev` branch for project [example repository](http://gitlab.example.com/root/example-repository).
-[bump2 with unicode ⇗ ⟾](http://gitlab.example.com/root/example-repository/commit/c5ccce8cd46a277dd0723ad5954f44a562c5c67e)
+Example User pushed 1 commit into the `refs/heads/dev` branch for project [example repository](http://gitlab.example.com/root/example-repository):
+* [bump2 with unicode ⇗ ⟾](http://gitlab.example.com/root/example-repository/commit/c5ccce8cd46a277dd0723ad5954f44a562c5c67e)
