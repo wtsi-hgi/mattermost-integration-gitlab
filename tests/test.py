@@ -167,5 +167,6 @@ class BuildTest(ServerTestMixin):
     def test_successful_build(self):
         self.assertResponse("gitlab/build/successful_build")
 
+
 if __name__ == '__main__':
     unittest.main()
