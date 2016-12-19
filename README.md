@@ -1,7 +1,7 @@
 # GitLab Integration Service for Mattermost
 
 [![Build Status](https://travis-ci.org/NotSqrt/mattermost-integration-gitlab.svg?branch=master)](https://travis-ci.org/NotSqrt/mattermost-integration-gitlab)
-[![Coverage Status](https://coveralls.io/repos/NotSqrt/mattermost-integration-gitlab/badge.svg?branch=master&service=github)](https://coveralls.io/github/NotSqrt/mattermost-integration-gitlab?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/NotSqrt/mattermost-integration-gitlab/badge.svg?branch=master)](https://coveralls.io/github/NotSqrt/mattermost-integration-gitlab?branch=master)
 
 This integrations service supports the following events from a GitLab repository into specific Mattermost channels by formatting output from [GitLab's outgoing webhooks](https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/web_hooks/web_hooks.md) to [Mattermost's incoming webhooks](https://docs.mattermost.com/developer/webhooks-incoming.html).
 
