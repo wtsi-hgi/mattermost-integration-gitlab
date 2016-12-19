@@ -110,7 +110,7 @@ User=mattermost
 Group=mattermost
 ExecStart=/usr/local/bin/mattermost_gitlab http://mattermost/hooks/hook-id
 PrivateTmp=yes
-WorkingDirectory=/opt/mattermost
+WorkingDirectory=/opt/mattermost #for omnibus installations, use /opt/gitlab/embedded/service/mattermost
 Restart=always
 RestartSec=30
 LimitNOFILE=49152
@@ -121,8 +121,8 @@ WantedBy=multi-user.target
 
 
 - `systemctl daemon-reload`
-- `systemctl enable mattermost`
-- `systemctl start mattermost`
+- `systemctl enable mattermost_gitlab`
+- `systemctl start mattermost_gitlab`
 
 
 3. **Connect your project to your GitLab account for outgoing webhooks**
