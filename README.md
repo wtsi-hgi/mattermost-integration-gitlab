@@ -124,6 +124,15 @@ WantedBy=multi-user.target
 - `systemctl enable mattermost_gitlab`
 - `systemctl start mattermost_gitlab`
 
+### Using Docker
+Simply build docker image and run it.
+There are several environment variables that can be used to change behaviour of plugin (see entrypoint.sh)
+
+```bash
+docker build -t mattermost-integration-gitlab .
+docker run -d -E MATTERMOST_WEBHOOK_URL=http://mattermost/hooks/hook-id mattermost-integration-gitlab
+```
+
 
 3. **Connect your project to your GitLab account for outgoing webhooks**
  1. Log in to your GitLab account and open the project from which you want to receive updates and to which you have administrator access. From the settings menu of the project, click on **Webhooks**. In the **URL** field enter `http://<your-mattermost-integration-URL>/new_event` (notice extra `new_event` URL argument). On this address the integration service will be receiving the events from your GitLab project. Make sure your URL has a leading `http://` or `https://`.
