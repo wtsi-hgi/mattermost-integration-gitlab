@@ -89,7 +89,7 @@ def post_text(text):
         data['channel'] = app.config['CHANNEL']
 
     headers = {'Content-Type': 'application/json'}
-    resp = requests.post(app.config['MATTERMOST_WEBHOOK_URL'], headers=headers, data=json.dumps(data))
+    resp = requests.post(app.config['MATTERMOST_WEBHOOK_URL'], headers=headers, data=json.dumps(data), verify=app.config['VERIFY_SSL'])
 
     if resp.status_code is not requests.codes.ok:
         print('Encountered error posting to Mattermost URL %s, status=%d, response_body=%s' % (app.config['MATTERMOST_WEBHOOK_URL'], resp.status_code, resp.json()))
@@ -106,6 +106,7 @@ def parse_args(args=None):
     parser.add_argument('-u', '--username', dest='USERNAME', default='gitlab')
     parser.add_argument('--channel', dest='CHANNEL', default='')  # Leave this blank to post to the default channel of your webhook
     parser.add_argument('--icon', dest='ICON_URL', default='https://gitlab.com/uploads/project/avatar/13083/gitlab-logo-square.png')
+    parser.add_argument('--no-verify-ssl', dest='VERIFY_SSL', action='store_false', help='Do not verify SSL certificates when POSTing to GitLab.')
 
     event_options = parser.add_argument_group("Events")
 
