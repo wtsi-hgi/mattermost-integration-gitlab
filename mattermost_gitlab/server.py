@@ -105,7 +105,7 @@ def parse_args(args=None):
 
     parser.add_argument('-u', '--username', dest='USERNAME', default='gitlab')
     parser.add_argument('--channel', dest='CHANNEL', default='')  # Leave this blank to post to the default channel of your webhook
-    parser.add_argument('--icon', dest='ICON_URL', default='https://gitlab.com/uploads/project/avatar/13083/gitlab-logo-square.png')
+    parser.add_argument('--icon', dest='ICON_URL', default='https://gitlab.com/uploads/system/project/avatar/13083/logo-extra-whitespace.png')
     parser.add_argument('--no-verify-ssl', dest='VERIFY_SSL', action='store_false', help='Do not verify SSL certificates when POSTing to GitLab.')
 
     event_options = parser.add_argument_group("Events")
